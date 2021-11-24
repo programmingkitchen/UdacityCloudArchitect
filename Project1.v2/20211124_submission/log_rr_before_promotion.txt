@@ -1,0 +1,62 @@
+[ec2-user@ip-10-1-10-24 ~]$ mysql --host=udacityproject1-replica.csrjhygyt4qp.us-west-1.rds.amazonaws.com --user=admin --password=dbcangetin udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14918
+Server version: 8.0.23 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [udacity]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.00 sec)
+
+MySQL [udacity]> use udacity;
+Database changed
+MySQL [udacity]> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| musicians         |
++-------------------+
+1 row in set (0.00 sec)
+
+MySQL [udacity]> describe musicians;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| first_name | varchar(45) | YES  |     | NULL    |                |
+| last_name  | varchar(45) | YES  |     | NULL    |                |
+| email      | varchar(45) | YES  |     | NULL    |                |
+| password   | varchar(16) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.02 sec)
+
+MySQL [udacity]> select * from musicians;
++----+------------+------------+------------------+----------+
+| id | first_name | last_name  | email            | password |
++----+------------+------------+------------------+----------+
+|  1 | Louis      | Armstrong  | satchmo@jazz.com | NULL     |
+|  2 | Bix        | Beiderbeck | bix@jazz.com     | NULL     |
+|  3 | Bix        | Beiderbeck | bix@jazz.com     | NULL     |
+|  4 | Gene       | Krupa      | drums@jazz.com   | NULL     |
+|  5 | Max        | Roach      | max@jazz.com     | NULL     |
+|  6 | Jaco       | Pastorious | bass@jazz.com    | NULL     |
++----+------------+------------+------------------+----------+
+6 rows in set (0.00 sec)
+
+MySQL [udacity]> INSERT INTO musicians (id, first_name, last_name, email, password) VALUES (null, 'Harry', 'Connick Jr.', 'harry@jazz.com', null);
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]> 

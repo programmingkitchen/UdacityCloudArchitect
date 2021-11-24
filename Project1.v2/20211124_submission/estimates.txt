@@ -1,0 +1,6 @@
+The Recovery Point Objective (RTO) is the tme that it takes to recover when  componet fails.  This includes waking people up, finding documenation, diagnosting the issues, and recoverying the component.  The Recovery Point Objective (RPO) is that maximum amount of time that the system can lose data for and is the measure of time that you may lose data in.   It is the amount of time between the last snapshot and the end of the period of data loss.   
+
+	1. The minimum RTO for a single AZ outage is zero since the database is recovered from the other AZ. 
+	2. The minimum RTO for a single region outage can be from minutes to hours depending on how long it takes to failover to the standby region. 
+	3. The minimum RPO for a single AZ outage is zero since there is no data loss from redundancy on both regions.  
+	4. The minimum RPO for a single region outage is from minutes to hours or as long as it takes to failover to the standby region.   
