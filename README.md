@@ -7,4 +7,4 @@ $ git remote -v
 origin  https://github.com/programmingkitchen/UdacityCloudArchitect.git (fetch)
 origin  https://github.com/programmingkitchen/UdacityCloudArchitect.git (push)
 
-Test
+Test 2
